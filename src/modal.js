@@ -30,10 +30,8 @@ export default class UserModal extends React.Component {
 
     return (
       <div>
-        // creates clickable glyphicon for each user
         <a onClick={ this.open.bind(this) }><span className="glyphicon glyphicon-menu-hamburger pull-right">  </span></a>
 
-        // Creates modal with user info
         <Modal show={ this.state.showModal } onHide={ this.close.bind(this) }>
           <Modal.Header closeButton>
             <Modal.Title>{ this.props.name }</Modal.Title>
