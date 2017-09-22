@@ -27,8 +27,8 @@ class App extends Component {
     return (
       <div className="container">
         <div className="list-row row">
-          <div className="col-md-12 text-center">
-            <h2 >Users</h2>
+          <div className="col-md-12">
+            <h2 className="text-center">Users</h2>
             { userGroup }
           </div>
         </div>
