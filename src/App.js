@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
+import UserModal from './modal.js';
+import { Button, Modal } from 'react-bootstrap';
 
 // User data
 var userData = require('./data.json');
@@ -15,12 +17,14 @@ class App extends Component {
                   <TableHeaderColumn dataField='applicationDate'>Application Date</TableHeaderColumn>
                   <TableHeaderColumn dataField='location'>Location</TableHeaderColumn>
                 </BootstrapTable>
+
     return (
       <div className="App container-fluid">
         <div className="row table-row">
           <div id="user-table">
             <h2>Users</h2>
             { table }
+            <UserModal />
           </div>
         </div>
       </div>
