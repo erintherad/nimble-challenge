@@ -1,61 +1,64 @@
 import React from 'react';
-import { Button, Modal } from 'react-bootstrap';
+import { Table, Modal, Button } from 'react-bootstrap';
 
-const createReactClass = require('create-react-class');
+export default class UserModal extends React.Component {
 
-const UserModal = createReactClass({
-  getInitialState() {
-    return { showModal: false };
-  },
+  constructor() {
+    super();
+    this.defaultProps = {
+      showModal: false,
+      name: "",
+      status: "",
+      applicationDate: "",
+      location: ""
+    };
+
+    this.state = {
+      showModal: false
+    };
+  }
 
   close() {
     this.setState({ showModal: false });
-  },
+  }
 
   open() {
     this.setState({ showModal: true });
-  },
+  }
 
   render() {
 
     return (
       <div>
-        <p>Click to get the full Modal experience!</p>
+        <a onClick={ this.open.bind(this) }><span className="glyphicon glyphicon-menu-hamburger">  </span></a>
 
-        <Button
-          bsStyle="primary"
-          bsSize="large"
-          onClick={this.open}
-        >
-          Launch demo modal
-        </Button>
-
-        <Modal show={this.state.showModal} onHide={this.close}>
+        <Modal show={ this.state.showModal } onHide={ this.close.bind(this) }>
           <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
+            <Modal.Title>{ this.props.name }</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <h4>Text in a modal</h4>
-            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
-
-            <h4>Overflowing text to show scroll behavior</h4>
-            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
-            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
-            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+            <Table>
+              <thead>
+                <tr>
+                  <th>Status</th>
+                  <th>Appliation Date</th>
+                  <th>Location</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{ this.props.status }</td>
+                  <td>{ this.props.applicationDate }</td>
+                  <td>{ this.props.location }</td>
+                </tr>
+              </tbody>
+            </Table>
           </Modal.Body>
           <Modal.Footer>
-            <Button onClick={this.close}>Close</Button>
+            <Button onClick={ this.close.bind(this) }>Close</Button>
           </Modal.Footer>
         </Modal>
       </div>
     );
   }
-});
-
-export default UserModal;
+};
