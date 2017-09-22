@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
 import './App.css';
+
+// modal
 import UserModal from './modal.js';
 
 // User data
@@ -8,6 +10,7 @@ var userData = require('./data.json');
 
 class App extends Component {
   render() {
+    // creates user group
     const userGroup = <ListGroup className="user-list text-left">
                     {
                       userData.map(function(user) {
