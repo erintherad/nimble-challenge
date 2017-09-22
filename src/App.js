@@ -8,11 +8,11 @@ var userData = require('./data.json');
 
 class App extends Component {
   render() {
-    const userGroup = <ListGroup className="user-list">
+    const userGroup = <ListGroup className="user-list text-left">
                     {
                       userData.map(function(user) {
                         return <ListGroupItem key={ user.id }>
-                                { user.name }
+                                <span className="pull-left">{ user.name }</span>
                                 <UserModal
                                   name={ user.name }
                                   status={ user.status }
