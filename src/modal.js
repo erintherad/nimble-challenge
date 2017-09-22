@@ -30,7 +30,7 @@ export default class UserModal extends React.Component {
 
     return (
       <div>
-        <a onClick={ this.open.bind(this) }><span className="glyphicon glyphicon-menu-hamburger">  </span></a>
+        <a onClick={ this.open.bind(this) }><span className="glyphicon glyphicon-menu-hamburger pull-right">  </span></a>
 
         <Modal show={ this.state.showModal } onHide={ this.close.bind(this) }>
           <Modal.Header closeButton>
