@@ -4,6 +4,8 @@ This small app demonstrates a combination of ReactJS components to create a page
 
 When the user clicks the icon associated with each name, it brings up a modal/overlay that shows all of the candidate information.
 
+You can find a deployed version of this app [here](https://nimble-challenge.herokuapp.com/).
+
 ## Installation
 
 To get this app up and running locally:
